@@ -35,5 +35,27 @@ router.post("/articles/save", (req,res) => {
 
 });
 
+router.post("/articles/delete", (req, res) => {
+  var id = req.body.id;
+  if(id != undefined){
+    if(!isNaN(id)){
+
+      Article.destroy({
+        where:{
+          id: id
+        }
+      }).then(() => {
+        res.redirect("/admin/articles");
+      });
+
+    }else{//Não for um Número
+      res.redirect("/admin/articles");
+    }
+
+  }else{// NULL
+    res.redirect("/admin/articles");
+  }
+});
+
 
 module.exports = router;

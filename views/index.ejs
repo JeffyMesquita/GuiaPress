@@ -1,5 +1,28 @@
 <%- include('./partials/header'); %>
+<%- include('./partials/homenavbar'); %>
 <body>
-  <h1>Olá Mundo!!</h1>
+  <div class="container">
+    <hr>
+    <div class="jumbotron">
+      <h1 class="display-4">Bem vindo</h1>
+      <p class="lead">Este é um simples blog do Guia do Programador.</p>
+      <hr class="my-4">
+      <p>Descrição detalhada aqui!.</p>
+      <a class="btn btn-primary btn-lg" href="#" role="button">Leia mais</a>
+    </div>
+    <br>
+    <% articles.forEach(article => { %>
+      <div class="card">
+        <div class="card-header">
+          <h3><%= article.title %></h3>
+        </div>
+        <div class="card-body">
+          <a href="/<%= article.slug %>" class="btn btn-success">Ler artigo</a>
+        </div>
+      </div>
+      <br>
+    <% }) %>
+
+  </div>
 </body>
 <%- include('./partials/footer'); %>
